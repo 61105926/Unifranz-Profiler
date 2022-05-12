@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::post('/register', [ProfileController::class, 'store'])->name('profiler.store');
 Route::post('/test-completado', [ProfileController::class, 'thanksPage'])->name('thanks');
 
+
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

@@ -6,6 +6,8 @@ use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
+use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller
 {
@@ -93,17 +95,6 @@ class ProfileController extends Controller
     }
     public function thanksPage(Request $request)
     {
-
-
-
-
-
-
-
-
-
-
-
         $array1 = $request->input('administrative');
         $array2 = $request->input('humanistic');
         $array3 = $request->input('artistic');
@@ -144,8 +135,20 @@ class ProfileController extends Controller
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+        //envio de gmail a cada estudiante
+        $data["email"] = "quesolauranico@gmail.com";
+        $data["title"] = "gmail seend exit";
+        $data["body"] = "email test";
+
+        $pdf = PDF::loadView('mail', $data);
+        Mail::send('mail', $data, function ($message) use ($data, $pdf) {
+            $message->to($data["email"])
+                ->subject($data["title"])
+                ->attachData($pdf->output(), "test.pdf");
+        });
         // print_r($highScore);
         // print_r($highScore2);
         return view('profiler', ["highScore" => $highScore, "highScore2" => $highScore2]);
+        return  View('mail', ["highScore" => $highScore, "highScore2" => $highScore2]);
     }
 }

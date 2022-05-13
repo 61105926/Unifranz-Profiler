@@ -110,6 +110,7 @@ class ProfileController extends Controller
         $science = array_sum($array6);
         $security = array_sum($array7);
         $chaside = array("administrative" => $administrative, "humanistic" => $humanistic, "artistic" => $artistic, "medicine" => $medicine, "engineering" => $engineering, "science" => $science, "security" => $security);
+        $chaside1 = array($administrative, $humanistic,  $artistic,  $medicine,  $engineering, $science, $security);
 
         uasort($chaside, array($this, "Ascending"));
 
@@ -135,20 +136,68 @@ class ProfileController extends Controller
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);
+
+
+        $chartData = [
+            "type" => 'bar',
+            "data" => [
+                "labels" => ['C', 'H', 'A', 'S',  'I', 'D', 'E'],
+                "datasets" => [
+                    [
+                        "label" => "Dados",
+                        "data" => [$administrative, $humanistic, $artistic, $medicine, $engineering, $science, $security],
+                        "backgroundColor" => ['#6bf1ab', '#63d69f', '#438c6c', '#509c7f', '#1f794e', '#34444c', '#90CAF9', '#64B5F6', '#42A5F5', '#2196F3', '#0D47A1'],
+                        "borderColor" => ['black'],
+                    ],
+                ],
+
+            ],
+            "options" => [
+                "legend" => [
+                    "display" => false
+                ],
+
+
+            ]
+        ];
+        $chartData = json_encode($chartData);
+        $chartURL = "https://quickchart.io/chart?width=210&height=120&c=" . urlencode($chartData);
+        $chartData = file_get_contents($chartURL);
+        $chart = 'data:image/png;base64, ' . base64_encode($chartData);
+
         //envio de gmail a cada estudiante
-        $data["email"] = "quesolauranico@gmail.com";
-        $data["title"] = "gmail seend exit";
-        $data["body"] = "email test";
+        $nombre     =   $request->input('nombre');
+        $apellido   =   $request->input('apellido');
+        $apellido   =   $request->input('apellido');
+        $colegio    =   $request->input('colegio');
+        $correo     =   $request->input('correo');
+
+        $data["email"]      = "quesolauranico@gmail.com";
+        $data["university"] = "UNIVERSIDAD PRIVADA FRANZ TAMAYO";
+        $data["body"]       = "El estudiante finalizo su Test Vocacional";
+        $data["name"]       = $nombre;
+        $data["last_name"]  = $apellido;
+        $data["school"]     = $colegio;
+        $data["emailEst"]   = $correo;
+        $data["chaside1"]   = $chaside1;
+        $data["highScore"]   = $highScore;
+        $data["highScore2"]  = $highScore2;
+        $data["chart"]      = $chart;
 
         $pdf = PDF::loadView('mail', $data);
         Mail::send('mail', $data, function ($message) use ($data, $pdf) {
             $message->to($data["email"])
-                ->subject($data["title"])
-                ->attachData($pdf->output(), "test.pdf");
+                ->subject($data["university"])
+                ->subject($data["name"])
+                ->subject($data["last_name"])
+                ->subject($data["emailEst"])
+                ->subject($data["highScore"])
+                ->subject($data["highScore2"])
+
+                ->attachData($pdf->output($data), "Perfilador-Unifranz.pdf");
         });
         // print_r($highScore);
         // print_r($highScore2);
-        return view('profiler', ["highScore" => $highScore, "highScore2" => $highScore2]);
-        return  View('mail', ["highScore" => $highScore, "highScore2" => $highScore2]);
+        return view('profiler', ["chaside1" => $chaside1, "highScore" => $highScore, "highScore2" => $highScore2]);
     }
 }

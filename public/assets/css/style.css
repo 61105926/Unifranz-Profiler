@@ -60,9 +60,11 @@ h6 {
     font-weight: 700;
 }
 h1,
-h2,
+h2 {
+    margin-bottom: 10px;
+}
 h3 {
-    margin-top: 20px;
+    margin-top: 100px;
     margin-bottom: 20px;
 }
 h2 {
@@ -799,11 +801,11 @@ button.submit.circle:before {
     font-size: 11px;
 }
 #middle-wizard {
-    padding: 30px 0 30px 50px;
+    padding: 1px 0 0px 0px;
 }
 #bottom-wizard {
     text-align: right;
-    padding: 15px 0 15px 0;
+    padding: 0px 0 0px 0;
     border-top: 1px solid #e8ebed;
 }
 .ui-widget {
@@ -1130,9 +1132,9 @@ textarea.form-control:focus {
 }
 .subheader_in {
     text-align: center;
-    height: 300px;
+    height: 200px;
     border-bottom: 1px solid #e8ebed;
-    background: #fff4e3 url(../img/services_bg.svg) no-repeat center bottom;
+    background: #8ba284 url(../img/services_bg.svg) no-repeat center bottom;
 }
 #logo_in {
     position: absolute;

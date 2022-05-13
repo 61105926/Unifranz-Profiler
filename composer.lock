@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d70ad4428268cefd22cbb73367185b5a",
+    "content-hash": "862ebdba487fd0b397ddbf556be4a448",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1144,6 +1144,55 @@
                 }
             ],
             "time": "2022-03-20T21:55:58+00:00"
+        },
+        {
+            "name": "ianw/quickchart",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/typpo/quickchart-php.git",
+                "reference": "eb42f306531c9ed3105000ceeefa39a4ed270afa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/typpo/quickchart-php/zipball/eb42f306531c9ed3105000ceeefa39a4ed270afa",
+                "reference": "eb42f306531c9ed3105000ceeefa39a4ed270afa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ian Webster",
+                    "homepage": "https://quickchart.io/"
+                }
+            ],
+            "description": "QuickChart chart API",
+            "homepage": "http://github.com/typpo/quickchart-php",
+            "keywords": [
+                "bar-chart",
+                "chart",
+                "chart-api",
+                "charts",
+                "image",
+                "line-chart"
+            ],
+            "support": {
+                "issues": "https://github.com/typpo/quickchart-php/issues",
+                "source": "https://github.com/typpo/quickchart-php/tree/v1.2.0"
+            },
+            "time": "2022-04-25T00:40:19+00:00"
         },
         {
             "name": "jeroennoten/laravel-adminlte",

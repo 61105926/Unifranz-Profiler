@@ -86,9 +86,9 @@
             <div class="container-fluid">
                 <div class="tab-content">
                     <div class="tab-pane fade" id="tab_1">
-                        <div class="subheader" id="quote"></div>
+
                         <div class="row">
-                            <aside class="col-xl-3 col-lg-4">
+                            <aside class="col-xl-3 col-lg-8">
                                 <h3>¡CADA PERSONA ES ÚNICA!</h3>
                                 <p class="lead">Estás muy cerca de conocer qué programas de UNIFRANZ son más afines a tus gustos, habilidades, talentos, pasiones y preferencias.</p>
                                 <ul class="list_ok">

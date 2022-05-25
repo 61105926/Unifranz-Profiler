@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Password;
 Route::get('/', [PasswordController::class, 'index']);
 Route::get('/welcome', function () {
     return view('welcome');
-})->name('welcome')->middleware('profile');
+})->name('welcome');
 Route::post('/register', [ProfileController::class, 'store'])->name('profiler.store');
 Route::post('/test-completado', [ProfileController::class, 'thanksPage'])->name('thanks');
 

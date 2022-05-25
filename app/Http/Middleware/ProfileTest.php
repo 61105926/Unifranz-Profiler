@@ -17,10 +17,8 @@ class ProfileTest
      */
     public function handle(Request $request, Closure $next)
     {
-        $numero = DB::table('passwords')
-            ->select('numero')
-            ->get();
-        if ($request->input('password') == '1234') {
+
+        if ($request->input('password') == '123') {
             return redirect()->route('welcome');
         }
 

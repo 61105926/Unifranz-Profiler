@@ -17,7 +17,6 @@
                  <div class="card-footer">
                     <div class="small-box bg-info">
                         <div class="inner">
-                            {{$numero}}
                             @foreach($numero as $numeros)
                                 <h3 class="center">{{$numeros->numero}}</h3>
                                 <p>Codigo Actual</p>

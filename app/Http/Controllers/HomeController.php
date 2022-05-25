@@ -24,5 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $numero = DB::table('passwords')
+            ->select('numero')
+            ->get();
+        return view('home', ['numero' => $numero]);
     }
 }

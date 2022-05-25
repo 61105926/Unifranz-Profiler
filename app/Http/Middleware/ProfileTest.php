@@ -20,7 +20,7 @@ class ProfileTest
         $numero = DB::table('passwords')
             ->select('numero')
             ->get();
-        if ($request->input('password') == '123') {
+        if ($request->input('password') == '1234') {
             return redirect()->route('welcome');
         }
 

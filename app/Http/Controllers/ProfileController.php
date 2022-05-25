@@ -18,6 +18,10 @@ class ProfileController extends Controller
      */
     public function index(Request $request)
     {
+        $numero = DB::table('passwords')
+            ->select('numero')
+            ->get();
+        return view('password_code', ['numero' => $numero]);
     }
 
     /**

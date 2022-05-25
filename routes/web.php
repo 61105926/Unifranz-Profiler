@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Password;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +18,10 @@ use App\Http\Controllers\ProfileController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [PasswordController::class, 'index']);
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome')->middleware('profile');
 Route::post('/register', [ProfileController::class, 'store'])->name('profiler.store');
 Route::post('/test-completado', [ProfileController::class, 'thanksPage'])->name('thanks');
 
@@ -25,3 +29,4 @@ Route::post('/test-completado', [ProfileController::class, 'thanksPage'])->name(
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::post('/home', [PasswordController::class, 'store'])->name('password.store');

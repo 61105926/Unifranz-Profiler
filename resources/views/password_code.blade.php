@@ -40,7 +40,7 @@
             color: #fff;
             background: #fa5001;
             cursor: pointer;
-            padding: 7px 30px;
+            padding: 7px 100px;
             outline: none;
             font-size: 20px;
             -webkit-transition: all 0.3s;

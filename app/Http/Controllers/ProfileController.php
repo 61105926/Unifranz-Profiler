@@ -180,7 +180,7 @@ class ProfileController extends Controller
         $colegio    =   $request->input('colegio');
         $correo     =   $request->input('correo');
 
-        $data["email"]      = "quesolauranico@gmail.com";
+        $data["email"]      = "amareseducar2020@gmail.com";
         $data["university"] = "UNIVERSIDAD PRIVADA FRANZ TAMAYO";
         $data["body"]       = "El estudiante finalizo su Test Vocacional";
         $data["name"]       = $nombre;

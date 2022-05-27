@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Redirect;
-use Barryvdh\DomPDF\Facade\Pdf as PDF;
+
+use \PDF;
 use Illuminate\Support\Facades\Mail;
 
 class ProfileController extends Controller

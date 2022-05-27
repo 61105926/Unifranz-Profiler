@@ -160,10 +160,11 @@ a.animated_link_2:hover:before {
 /*-------- 1.2 Buttons --------*/
 a.btn_outline,
 .btn_outline {
-    border: 2px solid #3f9fff;
+    border: 2px solid #fa5001;
+    background: #fa5001;
     font-family: inherit;
     font-size: inherit;
-    color: #3f9fff;
+    color: #ffffff;
     width: 100%;
     cursor: pointer;
     padding: 8px 20px;
@@ -174,19 +175,13 @@ a.btn_outline,
     transition: all 0.3s;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    border-radius: 3px;
-    text-transform: uppercase;
+    border-radius: 50px;
     display: block;
     text-align: center;
     font-size: 18px;
     text-transform: none;
 }
-a.btn_outline:hover,
-.btn_outline:hover {
-    background: #333;
-    color: #fff;
-    border: 2px solid #333;
-}
+
 a.btn_1,
 .btn_1 {
     border: none;
@@ -216,6 +211,26 @@ a.btn_1.medium,
     background: #3f9fff;
     cursor: pointer;
     padding: 25px 20px;
+    display: inline-block;
+    outline: none;
+    font-size: 20px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+a.btn_2.medium,
+.btn_2.medium {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: #fff;
+    background: #fa5001;
+    cursor: pointer;
+    padding: 7px 30px;
     display: inline-block;
     outline: none;
     font-size: 20px;

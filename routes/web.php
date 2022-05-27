@@ -21,12 +21,15 @@ use Illuminate\Support\Facades\Password;
 Route::get('/', [PasswordController::class, 'index']);
 Route::get('/welcome', function () {
     return view('welcome');
-})->name('welcome');
+})->name('welcome')->middleware('profile');
+
+
+// Route::get('/welcome', [ProfileController::class, 'profile'])->name('welcome')->middleware('profile');
 Route::post('/register', [ProfileController::class, 'store'])->name('profiler.store');
 Route::post('/test-completado', [ProfileController::class, 'thanksPage'])->name('thanks');
 
 
-Auth::routes();
 
+Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::post('/home', [PasswordController::class, 'store'])->name('password.store');
+Route::put('/home', [PasswordController::class, 'update'])->name('password.update');

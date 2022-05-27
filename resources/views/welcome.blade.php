@@ -1342,15 +1342,9 @@
 
     <div id="additional_links">
         <ul>
-
             <p>&copy; {{now()->year}} - Unifranz | Innovación en educación</p>
-
-
         </ul>
     </div><!-- /add links -->
-
-
-
     <!-- SCRIPTS -->
     <!-- Jquery-->
     <script src="assets/js/jquery-3.6.0.min.js"></script>

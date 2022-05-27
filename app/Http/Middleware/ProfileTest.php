@@ -17,10 +17,18 @@ class ProfileTest
      */
     public function handle(Request $request, Closure $next)
     {
-
-        if ($request->input('password') == '123') {
-            return redirect()->route('welcome');
-        }
+        // $numero = DB::table('passwords')
+        //     ->select('numero')
+        //     ->get();
+        // foreach ($numero as $numeros) {
+        //     $numeros->numero;
+        // }
+        // // if ($request->input('password') == $numeros) {
+        // //     return redirect()->route('welcome');
+        // // }
+        // if (!$request->input('button2') == "block") {
+        //     return redirect()->route('welcome');
+        // }
 
         return $next($request);
     }

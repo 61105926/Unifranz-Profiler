@@ -74,7 +74,10 @@ class PasswordController extends Controller
      */
     public function update(Request $request, password $password)
     {
-        //
+        DB::table('passwords')->update([
+            'numero' => $request->input('number'),
+        ]);
+        return redirect()->route('home');
     }
 
     /**

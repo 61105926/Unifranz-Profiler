@@ -16,6 +16,10 @@ class ProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function profile()
+    {
+        return view('welcome');
+    }
     public function index(Request $request)
     {
         $numero = DB::table('passwords')
@@ -188,16 +192,13 @@ class ProfileController extends Controller
         $data["highScore2"]  = $highScore2;
         $data["chart"]      = $chart;
 
-        $pdf = PDF::loadView('mail', $data);
+        $pdf = PDF::loadView('pdf', $data);
         Mail::send('mail', $data, function ($message) use ($data, $pdf) {
             $message->to($data["email"])
                 ->subject($data["university"])
                 ->subject($data["name"])
                 ->subject($data["last_name"])
                 ->subject($data["emailEst"])
-                ->subject($data["highScore"])
-                ->subject($data["highScore2"])
-
                 ->attachData($pdf->output($data), "Perfilador-Unifranz.pdf");
         });
         // print_r($highScore);
